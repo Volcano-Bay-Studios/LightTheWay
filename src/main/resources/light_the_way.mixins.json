@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "xyz.volcanobay.light_the_way.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "light_the_way.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "ItemRendererMixin",
+    "PlayerItemInHandLayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

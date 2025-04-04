@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "ABC"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "id": "light_the_way:flashlight"
+  }
+}
