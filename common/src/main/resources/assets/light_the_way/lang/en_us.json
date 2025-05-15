@@ -1,0 +1,5 @@
+{
+  "item.light_the_way.flashlight": "Flashlight",
+  "sounds.light_the_way.flashlight_on" : "Flashlight Clicks On",
+  "sounds.light_the_way.flashlight_off" : "Flashlight Clicks Off"
+}

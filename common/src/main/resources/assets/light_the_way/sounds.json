@@ -1,0 +1,14 @@
+{
+  "flashlight_on": {
+    "subtitles": "sounds.light_the_way.flashlight_on",
+    "sounds": [
+      "light_the_way:flashlight_on"
+    ]
+  },
+  "flashlight_off": {
+    "subtitles": "sounds.light_the_way.flashlight_off",
+    "sounds": [
+      "light_the_way:flashlight_off"
+    ]
+  }
+}
