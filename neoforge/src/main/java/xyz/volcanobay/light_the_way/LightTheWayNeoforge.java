@@ -20,14 +20,10 @@ public class LightTheWayNeoforge {
     }
 
     @EventBusSubscriber(modid = LightTheWay.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvenstBus {
+    public static class ClientModEventBus {
         @SubscribeEvent
         public static void registerAdditional(ModelEvent.RegisterAdditional event) {
 
-            // An inventory model example
-//            event.register(ModelResourceLocation.inventory(
-//                    ResourceLocation.fromNamespaceAndPath("examplemod", "item/example_unused_inventory_model")
-//            ));
 
             // A standalone model example
             LightTheWay.FLASHLIGHT_OFF = new ModelResourceLocation(

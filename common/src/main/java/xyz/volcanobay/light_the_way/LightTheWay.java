@@ -44,12 +44,14 @@ public class LightTheWay {
 
 
     public static void init() {
+    }
+
+    public static void clientInit() {
         VeilEventPlatform.INSTANCE.onVeilRenderLevelStage(((stage, levelRenderer, bufferSource, matrixStack, matrix4fc, matrix4fc1, i, deltaTracker, camera, frustum) -> {
             if (stage.equals(VeilRenderLevelStageEvent.Stage.AFTER_WEATHER)) {
                 renderEvent(deltaTracker.getGameTimeDeltaPartialTick(false));
             }
         }));
-
     }
 
     public static void renderEvent(float partialTicks) {

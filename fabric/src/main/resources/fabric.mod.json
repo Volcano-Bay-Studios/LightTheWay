@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "xyz.volcanobay.light_the_way.LightTheWayFabric"
+    ],
+    "client": [
+      "xyz.volcanobay.light_the_way.LightTheWayFabricClient"
     ]
   },
   "mixins": [
