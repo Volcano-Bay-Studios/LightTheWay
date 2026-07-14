@@ -35,6 +35,8 @@ public abstract class DaylightDetectorBlockMixin {
     private static int updateSignalStrength(int pValue, int pMin, int pMax, Operation<Integer> original, @Local(argsOnly = true) BlockPos blockPos, @Local(argsOnly = true) Level level, @Local(argsOnly = true) BlockState blockState) {
         boolean inverted = (Boolean)blockState.getValue(DaylightDetectorBlock.INVERTED);
 
+        int value = pValue;
+
         for (Player player : level.getEntitiesOfClass(Player.class, new AABB(blockPos).inflate(64))) {
             if (player.getMainHandItem().is(LightTheWay.FLASHLIGHT.get()) || player.getOffhandItem().is(LightTheWay.FLASHLIGHT.get())) {
                 ItemStack stack;
@@ -53,11 +55,16 @@ public abstract class DaylightDetectorBlockMixin {
                     Vec3 view = blockPos.getCenter().subtract(player.getEyePosition(1f));
                     Vec3 pos = view.normalize();
                     float rotation = (float) forward.distanceTo(pos);
-                    return (int) Math.floor(Mth.clamp(Mth.clamp(Mth.map(rotation, 1, 0, 0, 15),0,15) * (inverted ? -1 : 1) + pValue,0,15) / (Math.max(1,view.length()/8f)));
+                    int newValue = (int) Math.floor(Mth.clamp(Mth.clamp(Mth.map(rotation, 1, 0, 0, 15), 0, 15) * (inverted ? -1 : 1) + pValue, 0, 15) / (Math.max(1, view.length() / 8f)));
+                    int distance = Math.abs(value-pValue);
+                    int ourDistance = Math.abs(newValue-pValue);
+                    if (ourDistance > distance) {
+                        value = newValue;
+                    }
                 }
             }
         }
-        return Mth.clamp(pValue,pMin,pMax);
+        return Mth.clamp(value,pMin,pMax);
     }
 
     @Inject(method = "tickEntity", at = @At("HEAD"), cancellable = true)
